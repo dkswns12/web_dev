@@ -1,0 +1,64 @@
+/* common */
+/* 
+768px 이하인 가로 너비 시, 공통 summary_title or description이 해당 폰트 사이즈를 적용 받음
+
+선택자 우선순위가 main.css 내용보다 작기에 !important 플래그를 통해 small 사이즈 시엔 해당 내용을 더 우선하여 실행
+small 사이즈 시의 li 요소가 가로너비를 모두 차지하게 하여 1컬럼씩으로 보여지게함
+ */
+.summary__title{
+    font-size: 34px !important;
+}
+
+.summary__description{
+    font-size:22px !important;
+}
+
+/* feature */
+.section--feature .tiles ul li{
+    width:100%;
+    border-right:none;
+    border-bottom:1px solid #e5e5e5;
+}
+
+/* where is */
+/* width를 초기화하여 부모의 width를 따라가지 않게 설정 */
+#map{
+    width:auto;
+    margin:40px -20px 0 -20px;
+    border-left:none;
+    border-right:none;
+}
+
+/* pricing */
+.section--pricing .card{
+    display:block;
+}
+
+.section--pricing .card .cell2{
+    border-left:none;
+    border-top:1px solid #e5e5e5;
+}
+
+/* footer */
+/* footer의 site-links의 두 요소들에 float(좌, 우) 설정 해제-main.css와 비교해도 우선순위 적용됨 */
+footer .inner .site-links{
+    float:none;
+    display:block;
+    text-align:center;
+
+}
+
+/* 
+footer의 site-links 아이템들(텍스트 a 태그)에 블록 처리 후, 가운데 정렬
+
+각 개별 li 태그 요소들을 inline 적용 하여 텍스트에 최적화 된 상태 출력
+
+ */
+
+footer .site-links:first-child{
+    margin-bottom:20px;
+}
+
+footer .inner .site-links li {
+    display:inline;
+}

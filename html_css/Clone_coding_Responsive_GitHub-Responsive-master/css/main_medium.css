@@ -1,0 +1,173 @@
+
+    header.section .inner{
+        max-width: none;
+        height:auto;
+        padding:0 20px;
+    }
+
+    header .menu-group,
+    header .sign-menu{
+        float:none;
+    }
+
+    header .menu-group{
+        display:block;
+    }
+
+    header .logo{
+        padding:12px 0;
+    }
+
+    header .main-menu{
+        display:block;
+        margin-bottom:10px;
+    }
+
+    header .main-menu li{
+        border-top:1px solid #e5e5e5;
+    }
+
+    header .main-menu li a{
+        padding: 16px 0;
+    }
+
+    header .sign-menu{
+        display:block;
+        padding:10px 0 20px;
+    }
+
+    header .btn-group{
+        display:block;
+    }
+
+    header .btn-group .btn{
+        justify-content: center;
+    }
+
+    header .btn-group .sign-in{
+        margin-right:0;
+        margin-bottom:12px;
+    }
+    
+    #search-form{
+        margin-top:12px;
+        margin-right:0;
+    }
+
+    #search{
+        width:100%;
+        height:42px;
+        text-align:center;
+    }
+
+    header .sub-menu{
+        margin-top:12px;
+        margin-right:0px;
+        justify-content: center;
+
+    }
+
+    header .toggle{
+        display:none;
+    }
+
+    header .toggle.on{
+        display:block;
+    }
+
+    /* 
+기본적으로 html 로드 시, 토글 버튼은 생성하되 display를 none으로 설정
+
+미디어 특성 시, 보여주기만
+
+ */
+    #toggle-btn{
+        display:block;
+    }
+
+    /* visual */
+
+    .section--visual{
+        background-image:url('../img/bg-small.jpg');
+    }
+
+    /* 미디어 쿼리의 미디어 특성 시, 해당 영역의 아이템 요소들을 블록처리하고 max를 해제하여 양끝에 붙기에 패딩으로 간격 만들어줌 */
+    .section--visual .inner{
+        display:block;
+        max-width:none;
+        padding:80px 20px;
+    }
+
+    /* 
+텍스트 가운데 정렬 후, 사전에 정의 된 margin-right를 초기화
+
+sign-form이 최대 500px이고 가로너비는 자동이기에 resize에 맞게 가변적으로 변함
+
+해당 요소 가운데 정렬
+
+ */
+    .section--visual .summary{
+        text-align:center;
+        margin-right:0;
+        margin-bottom: 50px;
+    }
+
+    #sign-form{
+        max-width:500px;
+        width:auto;
+        margin:0 auto;
+    }
+
+    /* feature */
+    /* 
+    tile 안의 li 요소들은 25%로 4개가 width를 알맞게 가짐
+
+    하지만 미디어쿼리로 가로 너비가 1024px 이하로 줄어들 때, tile 안의 요소들 50% 가짐
+    
+    li 요소 중 2번째 요소 지정하여 오른쪽 선 제거
+
+    각 li 요소에 있는 이미지들을 li 안에서 패딩을 적용함으로 li 컨테이너가 커지며 사이즈 조정
+
+    */
+
+    .section--feature .summary{
+        padding: 66px 20px 0 20px;
+    }
+
+    .section--feature .tiles ul li{
+        width:50%;
+    }
+
+    .section--feature .tiles ul li:nth-child(2){
+        border-right:none;
+    }
+
+    .section--feature .tiles ul li img{
+        padding:14px 30% 24px;
+    }
+
+    /* where is */
+    .section--where-is .inner{
+        max-width:none;
+        padding:80px 20px 0 20px;
+    }
+
+    /* pricing */
+
+    .section--pricing .inner{
+        max-width:none;
+        padding:80px 20px;
+    }
+
+    .section--priceing .card .cell2{
+        font-size:20px;
+    }
+
+    /* footer */
+    footer .inner{
+        padding:50px 20px;
+    }
+
+    footer .logo{
+        display:none;
+    }

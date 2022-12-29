@@ -1,0 +1,60 @@
+/* 브라우저별 기본 css 값 존재-해당 값들을 유지 or 변경  */
+.body{
+    margin:0;
+    padding:0;
+}
+
+/* 가로는 100%로 꽉 채우나 세로는 div 태그 내의 태그 요소만큼 늘어남 */
+/* auto를 통해 자동으로 default value(기본값) 지정 */
+/* 헤더 바닥선의 굵기, 선 종류, 색상 지정 */
+.header{
+    width:auto;
+    height:auto;
+    background:white;
+    border-bottom:1px solid lightgray;
+}
+
+/* 가로는 좌상단 부터 지정 width 값 우상단까지 */
+/* margin의 기본값을 통해 가운데 영역으로 */
+.container{
+    width:980px;
+    margin:auto;
+}
+
+.container-left{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.logo{
+    float:left;
+    margin-right:5px;
+}
+
+/* logo 클래스를 갖는 태그 안의 img 태그를 찾음 */
+.logo img{
+    display:block;
+}
+
+.menu{
+    float:left;
+}
+
+/* float을 통해 요소들이 띄어짐으로 수평화 */
+/* 띄어졌기에 container 요소 영역 밖으로 갈 수 있음 */
+.menu-item{
+    float:left;
+    /* margin-right:10px; */
+
+    padding:8px 10px;
+    /* padding-top:8px;
+    padding-bottom:8px;
+    padding-left:10px;
+    padding-right:10px; */
+}
+
+.clearfix::after{
+    content:"";
+    display:block;
+    clear:both;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./char_content_.css">
+</head>
+<body>
+
+    <!-- ol과 ul 태그는 각각 순서가 정렬된 목록, 그렇지 않은 목록임 - 블록 요소 -->
+    <!-- li는 각 항목을 의미하며 위 태그의 자식으로서 사용가능 - 블록 요소에 속하며 근본적으로는 리스트 아이템 요소 -->
+    <!-- ol의 경우 순서성이 있기에 순서에 대한 중요도 의미 가능 -->
+    <ul>
+        <li>Apple</li>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Mango</li>
+        </ul>
+        <li>Banana</li>
+        <li>Mango</li>
+    </ul>
+
+    <!-- 해당 태그의 type 속성을 기반으로 항목에 매겨지는 요소들의 번호를 지정 -->
+    <!-- 항목 번호만 reversed 속성에 의해 역순 표시 - 속성 값 생략 가능 - boolean 형식 -->
+    <!-- start 속성을 기반으로 해당 속성 값부터 번호 시작 -->
+    <ol type="1" reversed="reversed">
+        <li>Apple</li>
+        <ol>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Mango</li>
+        </ol>
+        <li>Banana</li>
+        <li>Mango</li>
+    </ol>
+    
+    <ol>
+        <!-- 해당 항목 번호를 지정하며 이하의 항목 부터 해당 순번 적용 -->
+        <li value="7">Apple</li>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Mango</li>
+        </ul>
+        <li value="99">Banana</li>
+        <li>Mango</li>
+    </ol>
+
+    <!-- dt는 용어, dd는 용어에 대한 설명 및 정의, dl은 dt와 dd의 집합 영역 -->
+    <!-- dl은 dd와 dt만을 포함함 -->
+    <!-- 해당 관계는 key, value 형태를 표시 할 때 유용 -->
+    <!-- 스타일링 시,  특정 용어 묶음을 만들수없기에(dl-dt-dd 관계 유지)-->
+    <!-- ul, ol의 li를 묶음 단위로 해서 스타일링 가능 -->
+    <!-- 블록 요소 -->
+    <dl>
+        <dt>용어1</dt>
+        <dd>설명1</dd>
+        
+        <dt>용어2</dt>
+        <dd>설명2</dd>
+    </dl>
+
+    <!-- 하나의 문단(단락) 및 문장을 표현 -->
+    <!-- 정보통신보조기기를 통해 다음 문단으로 넘어갈수있는 단축키기능 가능 -->
+    <!-- 블록 요소 -->
+    <!-- 해당 태그 내, 임의적인 엔터는 화면 출력 시 개행을 하지 않음 - 개행은 br 태그로 -->
+    <p></p>
+
+    <!-- 문단의 분리를 위한 설정 -->
+    <!-- 수평선으로 표시됨 -->
+    <!-- 수평선의 의미보다 분리에 의미 초점을 맞춤 -->
+    <!-- 블록 요소 -->
+    <hr>
+
+    <!-- 해당 태그를 통해 미리 지정된 텍스트의 형식을 표현 -->
+    <!-- 텍스트 줄바꿈, 띄어쓰기 등 적용 -->
+    <!-- monospace 글꼴 계열로문자 형태로 표시 -->
+    <!-- 블록 요소 -->
+    <pre></pre>
+
+</body>
+</html>

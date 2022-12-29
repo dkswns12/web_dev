@@ -1,0 +1,670 @@
+/* Common */
+/* 
+css 내, google font 내용을 정의
+
+기본은 roboto 폰트를 적용하나 그렇지 않을 경우, sans-serif 적용
+
+ */
+.body__container{
+    font-family: 'Roboto', sans-serif;
+    font-size:16px;
+    /*font-weight : 글자의 두께
+    color:글자 색상*/
+    font-weight:400;
+    color:#333;
+
+}
+
+a{
+    text-decoration:none;
+    /* color:#333; */
+}
+
+/* float 처리 */
+/* inner내의 자식 요소(왼, 오른쪽 요소)를 float 처리시 컨테이너 기준 극 좌우로 들어감
+
+컨테이너안에 넣기 위해서 clearfix 처리 */
+.clearfix::after{
+    content:"";
+    clear : both;
+    display:block;
+}
+
+.float--left{
+    float:left;
+}
+
+.float--right{
+    float:right;
+}
+
+/* visual */
+/* 
+공통적으로 삽입되는 코드를 common 영역에 정의 후, 사용
+
+그 외적으로 다른 부분들은 재사용하면서 추가로 코드 작성
+
+ */
+.summary{
+
+}
+
+.summary .summary__title{
+    font-size:38px;
+    font-weight:300;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.summary .summary__description{
+    font-size:26px;
+    font-weight:300;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    color:#767676;
+}
+
+/* section & inner */
+.section{
+    position:relative;
+}
+
+.section .inner{
+    max-width: 980px;
+    margin:0 auto;
+    box-sizing: border-box;
+    position:relative;
+} 
+/* section & inner */
+
+/* visual */
+
+/* Common */
+
+/* 
+display : inline-flex는 컨테이너나 아이템에 수평성을 가지며 content에 맞게 출력
+
+align-items:center를 통해 컨테이너 내 아이템 요소들이 교차축 기준으로 가운데 정렬
+
+line-height는 행간격 배율
+
+cursor는 해당 버튼에 마우스를 갖다 댔을 때의 모양
+
+box-sizing을 통해 패딩으로 커진 박스를 조정
+
+ */
+
+.btn{
+    /* width:300px; */
+    height:35px;
+    background:#eee linear-gradient(to bottom, #fcfcfc, #eee);
+    border:1px solid #d5d5d5;
+    border-radius: 4px;
+    display:flex;
+    align-items:center;
+    padding:0 12px;
+    font-size:12px;
+    font-weight:500;
+    line-height: 1.5;
+    cursor:pointer;
+    box-sizing:border-box;
+    position:relative;
+    color:#333;
+}
+
+.btn:hover::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+.btn.btn--primary{
+    border:1px solid #65b836;
+    color:#fff;
+    background:#55a532 linear-gradient(#91dd70, #55ae2e);
+}
+
+
+/* input-text */
+/* 
+outline은 요소 포커스 시(클릭 등) 보더의 색상 변경-미지정
+
+box-shadow는 x축 시작 위치, y축 범위 등
+
+inset을 통해 그림자를 내부에 적용
+
+ */
+.input--text{
+    height:34px;
+    padding:0 10px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    box-sizing:border-box;
+    outline:none;
+    box-shadow:inset 0 2px 2px rgba(0,0,0,0.075);
+    font-size:16px;
+}
+
+/* 
+input 요소에 포커스 될 시의 내용 정의
+
+input--text에 정의된 기존의 shadow 적용을 유지하면서 comma 다음의 shadow 적용
+
+ */
+.input--text:focus{
+    border-color:#51a7e8;
+    box-shadow:inset 0 2px 2px rgba(0,0,0,0.075), 0 0 5px rgba(81,167,232,0.5);
+}
+
+/* 
+placeholder 속성은 글자 작성 전에 표시되는 힌트
+
+input 요소에 placeholder 속성을 제어하는 웹 표준 기술은 없음
+
+하지만 vendor prefix를 통해서 브라우저 별 접두어를 붙여 실험적으로 진행가능
+
+크롬(webkit), 모질라(moz), 마이크로소프트(ms) 등등
+
+ */
+.input--text::-webkit-input-placeholder{color:#cacaca;}
+
+/* Header */
+header{
+    border-bottom:1px solid rgba(0,0,0,0.75);
+    box-shadow:0 0 5px rgba(0,0,0,0.75);
+    background:#fff;
+    padding:20px;
+}
+
+/* inner가 header안에 포함되고 header는 height가 auto이기에 inner의 height를 따라감 */
+header .inner{
+    margin:0 auto;
+}
+
+/* header의 후손요소로 선택자를 잡고 각 아이템 별 flex 처리하여 수평화 */
+/* 
+높이는 inner 영역을 부모로 함으로 부모의 영역 높이를 다 가져감
+
+aline-items를 통해, 아이템들을 높이를 기준으로 가운데 정렬
+
+ */
+header .menu-group{
+    display:flex;
+    height:100%;
+    align-items:center;
+}
+
+header .logo{
+    margin-right:10px;
+}
+
+/* ﻿
+
+a 태그 영역에 배경으로 특정 경로 형태의 이미지를 정의(../ => 현재 경로 밖)
+
+a 태그는 인라인 요소이기에 블록 처리 한 후, 크기 지정
+
+text-indent를 통해서 왼쪽으로 -9999px 만큼의 들여쓰기하여 글자를 화면에 안보이게
+
+﻿ */
+header .logo a{
+    background:url("../img/logo.svg");
+    width:32px;
+    height:32px;
+    display:block;
+    text-indent:-9999px;
+}
+
+/* a 태그(이미지)에 마우스 갖다 댔을 때, 이미지 변경 */
+header .logo a:hover{
+    background:url("../img/logo_on.svg")
+}
+
+/* 
+header의 자식 ~ 후손에 걸친 a 태그들에 공통적으로 패딩을 통해 사이즈 증가-클릭시 텍스트 근방도 가능
+
+a 태그는 인라인 요소이기에 상하 또한 패딩 적용하려면 블록 요소로 전환
+
+ */
+header .main-menu{
+    display:flex;
+}
+
+header .main-menu li a{
+    display:block;
+    padding:10px;
+    color:#3c4146;
+    text-decoration:none;
+}
+
+header .main-menu li a:hover{
+    color:#51a7e8;
+}
+
+/* 
+#은 id가 고유한 성질을 지니기에 부모요소 선택자 필요없음
+
+order로 순서 재배치
+
+height를 통해 부모의 높이를 똑같이 가져오고 해당 높이 기준으로 아이템들 가운데 정렬
+
+ */
+header .sign-menu{
+    display:flex;
+    height:100%;
+    align-items:center;
+}
+
+/* 
+btn-group이 inline-flex임으로 요소간 개행 기준으로 띄어쓰기 적용-인라인 요소들
+
+임의적인 제어를 위해서 해당 요소 아이템들을 flex 처리후, margin으로 간격 잡기
+
+컨테이너 및 아이템 별 간격 잡기
+
+ */
+header .btn-group{
+    order:2;
+    display:flex;
+}
+
+header .btn-group .sign-in{
+    margin-right:4px;
+}
+
+header .btn-group .sign-in a{
+    color:#3c4146;
+}
+
+header .btn-group .sign-up a{
+    color:#eee;
+}
+
+#search-form{
+    order:1;
+    margin-right:12px;
+}
+
+#search{
+    width:160px;
+    font-size:14px;
+}
+
+/* search라는 id의 형제요소(+)에서 타입이 submit([ ])인 요소를 찾는 선택자 */
+#search + [type="submit"]{
+    display:none;
+}
+
+header .sub-menu{
+    display:flex;
+    margin-right:10px;
+}
+
+header .sub-menu li a{
+    display:block;
+    padding:8px;
+    color:#3c4146;
+    font-size:13px;
+}
+
+header .sub-menu li a:hover{
+    color:#51a7e8;
+}
+
+#toggle-btn{
+    display:none;
+    background:url("../img/toggle-btn.svg");
+    width:18px;
+    height:24px;
+    position:absolute;
+    top:16px;
+    right:20px;
+    cursor:pointer;
+    text-indent: -9999px;
+}
+/* Header */
+
+/* visual */
+/* 
+공통적인 요소를 넘어 개별적 커스터마이징을 위해서 실제 해당하는 요소를 추가 제어
+
+text-shadow는 텍스트 그림자의 x축 위치, y축 위치, 블러량, 색상을 지정
+
+값을 두개 이상 가질 수 있음
+
+배경 이미지를 어둡게 하기위해 투명도 있는 배경을 넣음으로 어두운 효과
+
+top:0; left:0; bottom:0; right:0;와 위 width height 적용 과 동일
+
+배경 이미지가 전 섹션을 덮을수 있게 cover 처리
+
+ */
+.section--visual{
+    background-image:url("../img/bg.jpg");
+    background-repeat:no-repeat;
+    background-position:bottom left;
+    background-size:cover;
+}
+
+.section--visual:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /* 
+    top:0;
+    left:0;
+    bottom:0;
+    right:0; 
+    */
+    background:rgba(0,0,0,.3);
+}
+
+.section--visual .inner{
+    padding:160px 0px;
+    display:flex;
+}
+
+/* flex-basis 속성에 0값을 주면 absolute flex item이 되어서 상위 flex container를 기준으로 크기가 결정
+
+flex-grow는 0보다 큰 값을 세팅하면 Flexible 박스로 변하면서 남은 여백을 메우는 속성 */
+.section--visual .summary{
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-right:50px;
+}
+
+.section--visual .summary__title{
+    color:#FFF;
+    font-size:54px;
+    text-shadow:0 1px 1px rgba(0,0,0,.25),
+                0 1px 25px rgba(0,0,0,.75);
+}
+
+.section--visual .summary__description{
+    color:#fff;
+    text-shadow:0 1px 1px rgba(0,0,0,.25),
+                0 1px 25px rgba(0,0,0,.75);
+}
+
+/* 
+입력받는 영역의 사이즈를 먼저 정의해서 안의 아이템 요소들이 해당 너비를 100% 모두 사용하여 맞춤 
+
+마지막 li 자식 요소의 여백은 제거
+
+해당 id 태그 내, submit 속성을 가진 태그 설정
+
+버튼이 inline flex임으로 수직정렬(text-align)이 아닌 수평 정렬을 위해서면 justify-content 사용
+*/
+#sign-form{
+    width:340px;
+    margin-top:10px;
+}
+
+#sign-form li{
+    margin-bottom:17px;
+}
+
+#sign-form li:last-child{
+    margin-bottom:0;
+}
+
+#sign-form .input--text{
+    width:100%;
+    height:40px;
+}
+
+#sign-form .caption{
+    font-size:12px;
+    margin-top:5px;
+    color:rgba(255,255,255,.6);
+    line-height:1.5;
+    text-align:center;
+}
+
+#sign-form [type="submit"]{
+    width:100%;
+    height:62px;
+    padding:0 25px;
+    font-size:20px;
+    /* text-align:center; */
+    justify-content: center;
+}
+
+/* visual */
+
+/* feature */
+.section--feature{
+    padding-top:66px;
+    background:#f5f5f5;
+}
+
+.section--feature .summary{
+    max-width:820px;
+    margin:0 auto;
+    text-align:center;
+}
+
+/* 
+최대 가로 너비를 820px 사이즈로 지정-가변성 포함
+
+iframe 태그 내 동영상은 video-ratio의 영역에 맞춰서 출력 됨
+
+video-ratio는 video 태그로부터 16:9 비율로 패딩시켜 해당 비율을 유지-변동성 포함
+
+ */
+.section--feature .video{
+    max-width:640px;
+    margin:50px auto;
+}
+
+.section--feature .video .video-ratio{
+    height:0;
+    padding-top:56.25%;
+    position:relative;
+}
+
+.section--feature .video .video-ratio iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+}
+
+.section--feature .tiles{
+    border-top:1px solid #e5e5e5;
+
+    border-bottom:1px solid #e5e5e5;
+}
+
+.section--feature .tiles .inner{
+    max-width:1200px;
+}
+
+/* 
+ul의 li들에 대해서 그리드 형태로 출력
+
+컬럼수를 4개, 1대1 비율 적용
+
+.section--feature .tiles ul{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+} */
+
+.section--feature .tiles ul{
+
+}
+
+/* 
+li 요소들에 float을 통해 수평화 시키고 각각의 li 요소들이 25%의 비율만큼의 너비를 가짐
+
+float을 사용 시, 부모 요소에 clearfix 클래스 정의
+
+*/
+.section--feature .tiles ul li{
+    padding:34px 24px;
+    text-align:center;
+    line-height:1.5;
+    border-right:1px solid #e5e5e5;
+    box-sizing: border-box;
+    float:left;
+    width:25%;
+}
+
+.section--feature .tiles ul li:last-child{
+    border-right:none;
+}
+
+/* 
+li 부모를 가진 이미지는 최대 가로너비를 지정하여 가변성을 가짐
+
+패딩은 위 좌우 아래 순으로 속성값을 입력하는데 좌우의 경우 현 사이즈 기준 10의 비율로 가져가서 가변성 가짐
+
+ */
+.section--feature .tiles img{
+    max-width:100%;
+    padding:14px 10% 24px;
+    box-sizing:border-box;
+}
+
+.section--feature .tiles li h3{
+    font-size:18px;
+    font-weight: 500;
+    margin-bottom:10px;
+}
+
+.section--feature .tiles p{
+    font-size:14px;
+    color:#767676;
+}
+
+/* where is */
+.section--where-is{
+
+}
+
+.section--where-is .inner{
+    padding-top:80px;    
+}
+
+#map{
+    width:100%;
+    height:400px;
+    margin-top:40px;
+    border:1px solid rgba(0,0,0,.2);
+    border-bottom:none;
+    box-shadow:0 0 20px rgba(0,0,0,.2);
+    box-sizing:border-box;
+}
+
+/* pricing card */
+.section--pricing{
+    background:linear-gradient(#f5f5f5, fff);
+}
+
+.section--pricing .inner{
+    padding:80px 0;
+}
+
+.section--pricing .card{
+    display:flex;
+    border:1px solid #e5e5e5;
+    border-radius:6px;
+    box-sizing:border-box;
+}
+
+.section--pricing .card .cell{
+    padding:24px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.section--pricing .card .cell1 .btn{
+    height:50px;
+    font-size:16px;
+}
+
+/* flex 1로써 cell2의 텍스트가 가변성을 가짐 */
+.section--pricing .card .cell2{
+    font-size:22px;
+    font-weight:300;
+    line-height:1.5;
+    flex:1;
+    border-left:1px solid #e5e5e5;
+}
+
+footer{
+
+}
+
+footer .inner{
+    padding:50px 0;
+    border-top:1px solid #eee;
+}
+
+footer .inner .site-links{
+    display:flex;
+}
+
+footer .inner .site-links li {
+    margin-right:10px;
+    font-size:12px;
+    color:#767676;
+}
+
+footer .inner .site-links li a{
+    color:#4078c0;
+}
+
+footer .inner .site-links li a:hover{
+    text-decoration: underline;
+}
+
+footer .logo{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    width:24px;
+    height:24px;
+
+}
+
+footer .logo:hover svg {
+    fill:#4078c0;
+}
+
+/* meadia */
+/* @media screen and (max-width:1024px){
+
+} */
+
+/* 
+아래 코드처럼 screen and 생략가능(all로 지정)
+
+화면이 특정 픽셀 이하일 때, 헤더의 inner가 초기화되는데 기존의 inner의 명시도가 높아 우선순위에 밀려 적용 안됨
+
+명시도(클래스 10점, 태그 1점)를 높이기 위해 섹션 클래스 추가
+
+화면 줄일 시, inner의 영역은 우선순위를 더 받아서 미디어 쿼리 적용받아 기존 가로 너비 초기화하고 높이는 내부 요소들에 맞게 늘어남
+
+float을 통해 분할된 영역들은 화면을 줄일 시, 분할된 float 초기화
+
+토글 버튼은 부모 요소 기준(헤더 inner도 해당 되지만 section inner도 해당됨)으로 상, 우 조절
+
+대체 텍스트는 text-indent를 통해서 화면 상 안보이게 함
+
+메뉴 그룹내 자식들 블록 처리(수직화), 메인 메뉴 블록 처리
+
+ */

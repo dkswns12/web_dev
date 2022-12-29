@@ -1,0 +1,46 @@
+.container{
+    width:100px;
+    height:100px;
+    background:tomato;
+}
+
+/* 
+미디어 쿼리를 통해서 반응형 작업
+
+css내, 선택자에 대한 요소에 미디어 쿼리(@media) 로 미디어 타입(screen 등)과 미디어 특성(max-width 등)에 맞게 반응형 작업
+
+screen and는 생략 가능하나 all(screen, print)이 default로 잡힙
+
+화면이 최대 1200px 이하까지는 컨테이너 요소의 속성값을 적용
+
+min-width는 이상일시의 작업
+
+
+ */
+@media screen and (max-width:1200px){
+    .container{
+        height:300px;
+        background:blue;
+    }
+}
+
+/* 
+orientation은 portrait의 경우, 세로가 가로보다 길경우 아래 컨테이너 속성 적용
+
+landscape는 반대로 가로가 더 길 경우
+
+ */
+@media screen and (orientation:portrait){
+    .container{
+        height:300px;
+        background:blue;
+    }
+}
+
+@media screen and (orientation:landscape){
+    .container{
+        height:300px;
+        background:blue;
+    }
+}
+

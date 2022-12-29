@@ -1,0 +1,8 @@
+hr{
+    /* 선을 none 처리 */
+    border:none;
+    /* 선 정의 : 두께 - 선 형태 - 색상 */
+    border-top: 2px dashed red;
+
+    /* 기존 선을 제거하고 윗선 하나만 덮어씀으로 한 선으로 표현 */
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub</title>
+
+    <meta name="author" content="An-Jun-Yeong">
+    <meta name="description" content="GitHub is where people build software. More than 18 million people use GitHub to discover, fork, and contribute to over 48 million projects.">
+
+    <!-- content에 해당하는 브라우저의 렌더링 되는 방식 및 버전 등을 설정 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- 
+    viewport는 작성한 레이아웃이 나오는 전체 영역
+    가로 너비는 해당 디바이스에 맞게 적용
+    initial-scale-다양한 디바이스의 초기화면 배율
+    user-scalable=no - 사용자에 의한 확대 및 축소 사용 하지 않음
+    maximum-scale, minimum-scale은 1로써 최대 확대와 최소 축소가 1의 크기를 가짐-실질적으로 확대/축소 없음을 의미 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1">
+    
+    <!-- og는 open graph로써, 외부에 보여질 때의 미리보기 설정 - 카톡 url 공유 기능 등 -->
+    <!-- 정보의 타입을 content 값으로 대입 -->
+    <!-- 웹페이지가 소셜 미디어(페이스북 등)로 공유될 때 우선적으로 활용되는 정보를 지정 -->
+    <!-- http://ogp.me/ -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GitHub">
+    <meta property="og:title" content="Build software better, together">
+    <meta property="og:description" content="GitHub clone coding / GitHub is where people build software. More than 31 million people use GitHub to discover, fork, and contribute to over 100 million projects.">
+    <meta property="og:image" content="img/logo__github.png">
+    <meta property="og:url" content="https://github.com">
+
+    <!-- 웹페이지가 소셜 미디어(트위터 등)로 공유될 때 우선적으로 활용되는 정보를 지정 -->
+    <!-- https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:site" content="GitHub">
+    <meta property="twitter:title" content="Build software better, together">
+    <meta property="twitter:description" content="GitHub clone coding / GitHub is where people build software. More than 31 million people use GitHub to discover, fork, and contribute to over 100 million projects.">
+    <meta property="twitter:image" content="img/logo__github.png">
+    <meta property="twitter:url" content="https://github.com">
+
+    
+    <!-- 외부에서 아이콘으로써 가져오는 사진 파일-링크 태그 사용 -->
+    <!-- apple-touch-icon rel을 통해 스마트폰(안드로이드, 애플)에서 해당 아이콘 사용 가능 -->
+    <link rel="icon" href="favicon.png">
+
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- google fonts 사이트에서 커스터마이징 폰트 링크를 통한 폰트 가져오기 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!--     
+    reset은 라이브러리나 플러그인 같이 미리 작성 된 파일이고 main 파일은 실제 css 직접 작성할 파일임
+    순서 상 직접 작성할 파일을 마지막에 두어야 초기화 시, 덮어쓰지 않음
+    외부 사이트를 통한 css 파일 사용 -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> -->
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+
+    
+<!-- BEB : css 작업 시의 작명 규칙을 의미
+
+__ : __ 앞의 태그의 __ 뒤의 태그가 일부분으로 속함
+
+--:--앞의 태그의 상태 표시
+
+-:일반적인 작명규칙(띄어쓰기 시 대입) -->
+<div class="body__container">
+    <div class="container">
+        <div class="container__item"></div>
+    </div>
+
+    <div class="button--safe"></div>
+    <div class="button--danger"></div>
+
+    <div class="toggle-button"></div>
+
+<div class="btn">hello world good job</div>
+<div class="btn btn--primary">Primary</div>
+
+<!-- placeholder 속성은 글자 작성 전에 표시되는 힌트 -->
+<input type="text" class="input--text" placeholder="Search Github">
+
+</div>
+</body>
+</html>
